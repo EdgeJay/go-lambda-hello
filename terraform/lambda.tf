@@ -43,11 +43,11 @@ resource "aws_lambda_permission" "go_lambda_hello_api_invoke" {
 # Create Lambda function in Go
 resource "aws_lambda_function" "go_lambda_hello_func" {
   function_name = "go-lambda-hello"
-  runtime       = "go1.x"
+  runtime       = "provided.al2023"
   role          = aws_iam_role.lambda_exec.arn
   handler       = "main"
-  filename      = "./build/main.zip"   # Path to the Go binary zipped
-  source_code_hash = filebase64sha256("./build/main.zip")
+  filename      = "./build/bootstrap.zip"   # Path to the Go binary zipped
+  source_code_hash = filebase64sha256("./build/bootstrap.zip")
 
   environment {
   }
