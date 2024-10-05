@@ -1,0 +1,23 @@
+{
+    "folders": [
+        {
+            "name": "app",
+            "path": "./app"
+        },
+        {
+            "name": "terraform",
+            "path": "./terraform"
+        }
+    ],
+    "settings": {
+        "[json]": {
+            "editor.tabSize": 2,
+            "editor.formatOnSave": false,
+            "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "files.exclude": {
+            "app": true,
+            "terraform": true
+        }
+    }
+}
