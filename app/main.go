@@ -3,7 +3,6 @@ package main
 import (
 	"context"
 	"encoding/json"
-	"log"
 
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
@@ -11,18 +10,19 @@ import (
 
 // Response structure for the API
 type Response struct {
-	Status  string `json:"status"`
+	Status  int    `json:"status"`
 	Message string `json:"message"`
 }
 
 // Handler function for the Lambda
 func handler(ctx context.Context, request events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
-	log.Printf("Received request: %s", request.Body)
+
+	// log.Printf("Received request: %s", request.Body)
 
 	// Simulating a read operation, e.g., fetching data from a database or returning a static response
-	data := map[string]string{
-		"id":   "1",
-		"name": "Sample Item",
+	data := Response{
+		Status:  200,
+		Message: "ok",
 	}
 
 	// Marshal the data into JSON
